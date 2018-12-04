@@ -1,15 +1,31 @@
 import React from 'react';
-import { Car } from './Car';
+import { connect } from 'react-redux';
+import { selectCar } from '../../actions/CarsAction';
+import  Car  from './Car';
 
-export class CarsList extends React.Component {
+class CarsList extends React.Component {
+
+    renderCars = () => this.props.cars.map(car => {
+        return <Car key={ car.id } car={ car } />
+        // return  <ul key={car.name}>
+        //             {car.name}
+        //             <button onClick={() => this.props.selectCar(car)}>Detalhes</button>
+        //         </ul>
+    });
+    
     render() {
         return(
             <div>
-                <Car />
-                <Car />
-                <Car />
-                <Car />
+                <ul>
+                    { this.renderCars() }
+                </ul>
             </div>
         );
     };
 }
+
+const mapStateToProps = state => {
+    return { cars: state.listCars };
+};
+
+export default connect(mapStateToProps, { selectCar })(CarsList);

@@ -1,9 +1,9 @@
 const state = {
     cars: [
-        { name: 'Lamborguini ', velocity: '180km/h' },
-        { name: 'Camarro ', velocity: '80km/h' },
-        { name: 'Skyline ', velocity: '200km/h' },
-        { name: 'Ferrari', velocity: '150km/h' },
+        { id:  1, name: 'Lamborguini ', velocity: '180km/h' },
+        { id:  2, name: 'Camarro ', velocity: '80km/h' },
+        { id:  3, name: 'Skyline ', velocity: '200km/h' },
+        { id:  4, name: 'Ferrari', velocity: '150km/h' },
     ],
     selectedCar: null
 }

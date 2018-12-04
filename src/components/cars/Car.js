@@ -1,12 +1,18 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { selectCar } from '../../actions/CarsAction';
 
-export class Car extends React.Component {
+class Car extends React.Component {
+    
     render() {
+        const { name } = this.props.car;
         return(
             <div>
-                <p>Nome do Carro</p>
-                <button>Details</button>
+                <p>{ name }</p>
+                <button onClick={() => this.props.selectCar(this.props.car)}>Details</button>
             </div>
         );
     };
 }
+
+export default connect(null, { selectCar })(Car);
